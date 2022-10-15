@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "create-token": "ts-node ./tokens/dev/index.ts",
-    "reset-candymachine":"rm tokens/candymachine/cache.json && cd tokens/candymachine && sugar launch"
+    "reset-candymachine": "rm tokens/candymachine/cache.json; cd tokens/candymachine && sugar launch"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.9",

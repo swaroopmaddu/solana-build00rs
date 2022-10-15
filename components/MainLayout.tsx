@@ -1,11 +1,8 @@
 import {FC, ReactNode} from 'react';
-import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { Box, Center, Spacer, Stack, Text, Link } from "@chakra-ui/react";
 import NavBar from "../components/NavBar";
-import Disconnected from "../components/Disconnected";
-import Connected from "../components/Connected";
 import { useWallet } from "@solana/wallet-adapter-react";
 
 

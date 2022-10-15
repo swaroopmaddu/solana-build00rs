@@ -22,7 +22,13 @@ const TOKEN_IMAGE="tokens/dev/assets/icon.jpg";
 const TOKEN_IMAGE_NAME = "icon.jpg";
 
 
-async function buildDevCoin(connection:web3.Connection, payer: web3.Keypair) {
+async function buildDevCoin(connection:web3.Connection, payer: web3.Keypair, programId: web3.PublicKey) {
+
+  const [mintAuth] = await web3.PublicKey.findProgramAddress(
+    [Buffer.from("mint")],
+    programId
+  );
+
   const mint = await token.createMint(
     connection,
     payer,
@@ -99,7 +105,18 @@ async function buildDevCoin(connection:web3.Connection, payer: web3.Keypair) {
         tx,
         [payer],
     );
+
     console.log(`Transaction signature: ${transactionSignature}`);
+    
+    await token.setAuthority(
+      connection,
+      payer,
+      mint,
+      payer.publicKey,
+      token.AuthorityType.MintTokens,
+      mintAuth
+    );
+    
     fs.writeFileSync("tokens/dev/devcoin.json", JSON.stringify({
         mint: mint.toBase58(),
         tokenMetadata: metadataPDA.toBase58(),
@@ -113,7 +130,11 @@ async function main() {
     const connection = new web3.Connection(web3.clusterApiUrl("devnet"));
     const user = await initializeKeypair(connection);
 
-    await buildDevCoin(connection, user);
+    await buildDevCoin(
+      connection,
+      user,
+      new web3.PublicKey("67LqriYXgVwxh7vomxBU24XtzoZNVdenN1x1m5R4Y2Kc")
+    );
 }
 
 main()

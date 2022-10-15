@@ -33,7 +33,7 @@ const Connected: FC = () => {
         .candyMachines()
         .findByAddress({
           address: new PublicKey(
-            "8mk5JriSXNxrXjqoUx12Xhz3nrWpdBa6FUBEKmmhEmEL"
+            "3aEHzXzeftSiQDuwqvWHVQRDVGxv1dGnyuQNjPsnKzap"
           ),
         })
         .run()
