@@ -33,7 +33,7 @@ const Connected: FC = () => {
         .candyMachines()
         .findByAddress({
           address: new PublicKey(
-            "3aEHzXzeftSiQDuwqvWHVQRDVGxv1dGnyuQNjPsnKzap"
+            process.env.NEXT_PUBLIC_CANDY_MACHINE_ADDRESS ?? ""
           ),
         })
         .run()
@@ -59,7 +59,7 @@ const Connected: FC = () => {
       try {
         setIsMinting(true);
         const nft = await metaplex.candyMachines().mint({ candyMachine }).run();
-        console.log(nft);
+        // console.log(nft);
         router.push(`/newmint?mint=${nft.nft.address.toBase58()}`);
       } catch (error) {
         alert(error);

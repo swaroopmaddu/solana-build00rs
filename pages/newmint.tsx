@@ -22,9 +22,7 @@ import { PublicKey } from "@solana/web3.js";
 import { Metaplex, walletAdapterIdentity } from "@metaplex-foundation/js";
 import { useRouter } from "next/router";
 
-interface NewMintProps {
-  mint: PublicKey;
-}
+
 
 const NewMint: NextPage<NewMintProps> = ({ mint }) => {
 
@@ -94,6 +92,9 @@ const NewMint: NextPage<NewMintProps> = ({ mint }) => {
     );
 };
 
+interface NewMintProps {
+  mint: PublicKey;
+}
 
 NewMint.getInitialProps = async ({ query }) => {
   const { mint } = query;
