@@ -118,6 +118,7 @@ export function createRedeemInstruction(
   tokenProgram: PublicKey,
   programId: PublicKey
 ): TransactionInstruction {
+
   const [stakeAccount] = PublicKey.findProgramAddressSync(
     [nftHolder.toBuffer(), nftTokenAccount.toBuffer()],
     programId
@@ -127,6 +128,7 @@ export function createRedeemInstruction(
     [Buffer.from("mint")],
     programId
   );
+  console.log("mintAuth", mintAuth.toBase58());
 
   return new TransactionInstruction({
     programId: programId,
@@ -182,6 +184,7 @@ export function createUnstakeInstruction(
   metadataProgram: PublicKey,
   programId: PublicKey
 ): TransactionInstruction {
+  
   const [stakeAccount] = PublicKey.findProgramAddressSync(
     [nftHolder.toBuffer(), nftTokenAccount.toBuffer()],
     programId
