@@ -17,7 +17,7 @@ import * as fs from "fs";
 const TOKEN_NAME="DEV Coin";
 const TOKEN_SYMBOL="DEV";
 const TOKEN_DESCRIPTION = "DEV Coin is a token for the Solana Buildoors project";
-const TOKEN_DECIMALS=9;
+const TOKEN_DECIMALS=2;
 const TOKEN_IMAGE="tokens/dev/assets/icon.jpg";
 const TOKEN_IMAGE_NAME = "icon.jpg";
 
@@ -133,7 +133,7 @@ async function main() {
     await buildDevCoin(
       connection,
       user,
-      new web3.PublicKey("67LqriYXgVwxh7vomxBU24XtzoZNVdenN1x1m5R4Y2Kc")
+      new web3.PublicKey("AxJjgFUbaQn8ypKgRy56EKco2cQ95oGEN7oJUdo7VCUY")
     );
 }
 

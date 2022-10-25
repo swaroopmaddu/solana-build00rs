@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "create-token": "ts-node ./tokens/dev/index.ts",
+    "create-token": "ts-node tokens/dev/index.ts",
     "reset-candymachine": "rm tokens/candymachine/cache.json; cd tokens/candymachine && sugar launch"
   },
   "dependencies": {
